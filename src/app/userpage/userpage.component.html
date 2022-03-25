@@ -12,7 +12,10 @@
     <input type = "text" name = "searchText"  placeholder = "Search Medicine where" ngModel>
     &nbsp;
     <button type="submit"><strong>Search</strong> </button>
+    
   </form>
+  
+  
   
   <div class="card">
     <mat-grid-list gutterSize="5px" class="grid-layout" cols={{listLen}} rowHeight="350px"  >
@@ -86,7 +89,28 @@ Apollopharmacy.in has more than 5000 products in various categories like Vitamin
   </p>
 
 </mat-tab>
-<mat-tab label="Contact Us" routerLink="/aboutus" >Content 3</mat-tab>
+<mat-tab label="Contact Us" routerLink="/aboutus" >
+  <img id="card-image" mat-card-image  src="{{imageContactUs}}" width="200" height="250"/>
+  <br/>
+  <br/>
+<div class="card-">
+  Corporate Details
+  Mail
+  Mail us at: care@1mg.com
+  CIN
+  CIN :U24290DL2016PTC302634
+  Location
+  Our location:
+  Registered Address
+  B-23, G. T. Karnal Road,
+  Industrial  Area, Delhi -110033, India
+  Postal Address:
+  Corporate Address:
+  5th Floor Tower – B of The Presidency Building,
+  46/4 Mehrauli Gurgaon Road, Sector 14,
+  Gurugram, Haryana-122001, India
+</div>
+</mat-tab>
 
 
 

@@ -43,6 +43,7 @@ export class UserpageComponent implements OnInit {
   medicineElement =[]; 
    listLen:number;
    imageSrc : string 
+   imageContactUs : string
    imageAlt : string
    list : MedicineElement[];
 
@@ -70,6 +71,7 @@ export class UserpageComponent implements OnInit {
     //   MedicineElement['rows']=1;
     // })
     this.imageSrc = "./assets/images/aboutus.jpg";
+    this.imageContactUs="./assets/images/contactUs.jpg";
     console.log("hi from user ")
     this.loginService.getActiveMedicineRequest().subscribe((data:MedicineElement[])=>{
     
