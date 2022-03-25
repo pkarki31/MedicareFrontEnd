@@ -1,0 +1,99 @@
+
+
+
+<mat-tab-group mat-align-tabs="start">
+
+<br/>
+
+
+<mat-tab label=" List of Medicines ">
+
+  <form #userlogin = "ngForm" (ngSubmit) = "onClickSubmit(userlogin.value)" >
+    <input type = "text" name = "searchText"  placeholder = "Search Medicine where" ngModel>
+    &nbsp;
+    <button type="submit"><strong>Search</strong> </button>
+  </form>
+  
+  <div class="card">
+    <mat-grid-list gutterSize="5px" class="grid-layout" cols={{listLen}} rowHeight="350px"  >
+      <mat-grid-tile *ngFor="let product of list" [colspan]="product.rows" [rowspan]="product.cols" >
+          <mat-card class="example-card" *ngIf="product.active" >   
+            <mat-card-header>
+              <div mat-card-avatar class="example-header-image"></div>
+            <mat-card-title >{{product.medicine_name}}</mat-card-title>
+          <!--  <mat-card-subtitle>{{product.description}}</mat-card-subtitle>-->
+            
+           
+            </mat-card-header>
+            <img id="card-image"  mat-card-image  src='{{ "assets/images/" + product.image+ ".jpg" }}' alt="{{product.image}}" width="200" height="250"/>
+            
+            <mat-card-content>
+            
+            
+            <mat-grid-tile-footer >
+              
+              Price : Rs.{{product.price}}
+            <mat-card-actions>
+            <button mat-button (click)="addToCart(product)"> Add to Cart</button>
+          </mat-card-actions>
+            </mat-grid-tile-footer>       
+          
+            </mat-card-content>
+            
+              
+          </mat-card>
+        </mat-grid-tile>
+        <br/>
+    </mat-grid-list>
+    
+    </div>
+    <br/>
+    <div class="card">
+      <div class="divBackColor">
+      <mat-grid-tile-footer> 
+        <a routerLink="/cart" class="button fancy-button">
+          <i class="material-icons">shopping_cart</i>Checkout
+        </a>  
+      </mat-grid-tile-footer>
+    </div>
+    <div class="card">
+  
+      <a routerLink="" >LogOut</a>
+    </div>
+    </div>
+
+</mat-tab>
+<mat-tab label="About Us" >
+
+ 
+  <img id="card-image" mat-card-image  src="{{imageSrc}}" width="200" height="250"/>
+  <br/>
+  <br/>
+  <p>
+
+    Apollo Pharmacy is a part of Apollo Hospitals - India’s trusted pharmacy. It is India's first and largest branded pharmacy network, with over 4500 outlets in key locations.
+
+Accredited with - International Quality Certification, Apollo Pharmacy offers genuine medicines round-the-clock, through our 24-hour Pharmacies. Apollo Pharmacy also provides customer care any time of the day!
+
+Quality is the cornerstone of our existence. We have gained experience in pharmacy operations management over the last 2 decades and are committed to delivering best service in the industry.
+
+Apollo Pharmacy is well stocked with medicines, OTC and FMCG products, manned by a team of qualified and experienced staff available to cater to your every need.
+
+Apollopharmacy.in has more than 5000 products in various categories like Vitamins and Supplements, Baby Care, Personal Care, Health & Nutrition Foods and OTC. In addition to this we have more than 400 Apollo Brand Products in the following categories like vitamins and supplements, health food, oral care, skincare, personal care, baby care, OTC etc.
+
+
+
+  </p>
+
+</mat-tab>
+<mat-tab label="Contact Us" routerLink="/aboutus" >Content 3</mat-tab>
+
+
+
+<div>
+  
+</div>
+
+
+</mat-tab-group>
+

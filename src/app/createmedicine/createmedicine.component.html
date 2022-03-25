@@ -1,0 +1,64 @@
+
+
+<div fxLayoutAlign="center center" fxFlexFill class="main-div">
+    <mat-card fxFlex="50">
+        <mat-toolbar color ='primary'>New Medicine Page </mat-toolbar>
+        <form fxLayoutAlign="strech" fxLayout="column" [formGroup]="formGroup" (ngSubmit)="loginProcess()" >
+           <br/>
+            <mat-form-field appearance="fill">
+              
+                <br/>
+               <input matInput placeholder="Medicine Name " formControlName="medicine_name">            
+            </mat-form-field> 
+            
+         
+            <mat-form-field appearance="fill">
+                <input matInput placeholder="Medicine Company Name " formControlName="medicine_company" >            
+            </mat-form-field> 
+            
+            
+            <mat-form-field appearance="fill">
+                <input matInput placeholder="Description " formControlName="description">            
+            </mat-form-field> 
+            
+                     
+            <mat-form-field appearance="fill">
+                <input matInput placeholder="Quantity of Medicine" formControlName="quantity"(keypress)="numberOnly($event)" type="text" maxlength="4">            
+            </mat-form-field>
+            
+                    
+            <mat-form-field appearance="fill">
+                <input matInput placeholder="Price of Medicine" formControlName="price" (keypress)="numberOnly($event)" type="text" maxlength="4">            
+            </mat-form-field>
+                    
+            <mat-form-field appearance="fill" >
+                <mat-label>Is Medicine Actice</mat-label>
+                <select matNativeControl formControlName="active"  >
+                    
+                    <option value="true" selected>TRUE</option>
+                    <option value="false">FALSE</option>
+                  </select>
+             <!--   <input matInput placeholder="Is Medicine Actice ? " formControlName="active">   -->
+                    
+            </mat-form-field>
+            
+        <!--    <mat-form-field appearance="fill">-->
+              <!--  <input matInput placeholder="Upload Image" formControlName="image">            -->
+             
+              <input type="file" class="file-input" 
+                        (change)="onFileSelected($event)" #fileUpload formControlName="image">
+
+               
+
+         <!--   </mat-form-field>-->
+            
+            
+            <br/>
+            <button mat-raised-button color="primary" type="submit" mat-button  >Submit</button>
+            
+
+          
+            
+        </form>
+        </mat-card>
+</div>

@@ -1,0 +1,61 @@
+
+
+<div fxLayoutAlign="center center" fxFlexFill class="main-div">
+    <mat-card fxFlex="50">
+        <mat-toolbar color ='primary'>New Customer Registration Page </mat-toolbar>
+        <form fxLayoutAlign="strech" fxLayout="column" [formGroup]="formGroup" (ngSubmit)="loginProcess()" >
+           <br/>
+            <mat-form-field appearance="fill">
+              
+                <br/>
+               <input matInput placeholder="First Name " formControlName="first_name">            
+            </mat-form-field> 
+            
+         
+            <mat-form-field appearance="fill">
+                <input matInput placeholder="Last Name " formControlName="last_name" >            
+            </mat-form-field> 
+            
+            
+            <mat-form-field appearance="fill">
+                <input matInput placeholder="Email ID " formControlName="username">            
+            </mat-form-field> 
+                    
+            <mat-form-field appearance="fill">
+                <input matInput type="password" placeholder="Password" formControlName="password">            
+            </mat-form-field>
+            
+                     
+            <mat-form-field appearance="fill">
+                <input matInput placeholder="Address Flat / Society Name" formControlName="address1">            
+            </mat-form-field>
+            
+                    
+            <mat-form-field appearance="fill">
+                <input matInput placeholder="Address 2" formControlName="address2">            
+            </mat-form-field>
+                    
+            <mat-form-field appearance="fill">
+                <input matInput placeholder="State" formControlName="state">            
+            </mat-form-field>
+            
+            <mat-form-field appearance="fill">
+                <input matInput placeholder="Pincode" formControlName="pincode" (keypress)="numberOnly($event)" type="text" maxlength="6">            
+            </mat-form-field>
+            
+            <mat-form-field appearance="fill">
+                <input matInput placeholder="phonenumber" (keypress)="numberOnly($event)" type="text"  formControlName="phonenumber" maxlength="10">            
+            </mat-form-field>
+            
+            <mat-form-field  class="invisible example-full-width">
+                <input matInput formControlName="isadmin" value="false" >            
+            </mat-form-field>
+            <br/>
+            <button mat-raised-button color="primary" type="submit" mat-button  >Register</button>
+            
+
+          
+            
+        </form>
+        </mat-card>
+</div>

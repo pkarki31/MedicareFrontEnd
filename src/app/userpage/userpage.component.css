@@ -1,0 +1,36 @@
+
+  /* Style the counter cards */
+  .card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
+    padding: 16px;
+    text-align: center;
+    background-color: #f1f1f1;
+    
+  }
+
+  .example-card {
+    max-width: 200px;
+  }
+  
+  input{ font-size:1.3em; padding:1.2em; background-color: #f2f2f211; }
+
+  .mat-tab-group {
+    margin-bottom: 48px;
+  }
+
+  .divBackColor{
+
+    background-color: #ABBAEA;
+  }
+
+  .link {
+    height: 48px;
+  }
+
+  .logout {
+  
+  float: right;
+  font-size: 15px;
+  
+  
+  } 

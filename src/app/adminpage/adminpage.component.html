@@ -1,0 +1,217 @@
+
+
+<!DOCTYPE html>                   
+<html>                        
+ <head>                        
+    <title>Page Title</title>                        
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>                       
+ </head> 
+ 
+<br/>
+
+<body>
+  
+<div class="center">
+
+  <div [ngClass]="false?'col-md8':'col-md-12'">
+
+    <div class="center">
+
+      <div class="center">
+
+        <div class="centerP" >
+          <div class="centerP" >
+            <h2>  Medicine List </h2>
+          </div>
+          <a class="logout" routerLink="" >LogOut</a>
+       
+           
+        </div>
+        <a href='/createmedicine'>Create New Medicine Here</a>
+
+        <form #userlogin = "ngForm" (ngSubmit) = "onClickSubmit(userlogin.value)" >
+          <input type = "text" name = "searchText" placeholder = "Search Medicine where" ngModel>
+          &nbsp;
+          <button type="submit"><strong>Search</strong> </button>
+        </form>
+      <br/>
+      
+    <table class="table table-bordered" style="width: 100%">
+
+      
+        <tr>
+          <!-- <th class="td-fix-10 text-center">ID</th> -->
+          <th class="td-fix">Medicine Name</th>
+          <th class="td-fix">Medicine Company</th>
+          <th class="td-fix">Description</th>
+          <th class="td-fix">Quantity</th>
+          <th class="td-fix">Price</th>
+          <th class="td-fix">Active</th>
+          <th class="td-fix">Images</th>
+          <th class="text-center">Action</th>
+        </tr>
+
+
+      
+
+     
+        <tr *ngFor="let listHtml of list ; index as i;" class="hover-highlight">
+          <!-- <td class="td-fix-10 text-center" >
+
+            {{listHtml.m_id}}
+
+
+          </td> -->
+
+          <td class="td-fix">
+
+            <div *ngIf="!enableEdit || enableEditIndex != i  ">
+              {{listHtml.medicine_name}}
+
+            </div>
+
+            <div *ngIf="enableEdit" class="pad-5">
+
+            
+              <input *ngIf="enableEditIndex == i" type="text" class="form-control" name="medicine_name" [(ngModel)]="listHtml.medicine_name" />
+           
+
+            </div>       
+
+
+          </td>
+
+          <td class="td-fix">
+
+            <div *ngIf="!enableEdit || enableEditIndex != i  ">
+              {{listHtml.medicine_company}}
+
+            </div>
+
+            <div *ngIf="enableEdit" class="pad-5">
+              <input *ngIf="enableEditIndex == i" type="text" class="form-control" name="medicine_name" [(ngModel)]="listHtml.medicine_company" />
+
+            </div>
+
+
+          </td>
+
+          <td class="td-fix">
+
+            <div *ngIf="!enableEdit || enableEditIndex != i  ">
+              {{listHtml.description}}
+
+            </div>
+
+            <div *ngIf="enableEdit" class="pad-5">
+              <input *ngIf="enableEditIndex == i" type="text" class="form-control" name="medicine_name" [(ngModel)]="listHtml.description" />
+
+            </div>
+
+
+          </td>
+
+          <td class="td-fix">
+
+            <div *ngIf="!enableEdit || enableEditIndex != i  ">
+              {{listHtml.quantity}}
+
+            </div>
+
+            <div *ngIf="enableEdit" class="pad-5">
+              <input *ngIf="enableEditIndex == i" type="text" class="form-control" name="medicine_name" [(ngModel)]="listHtml.quantity" />
+
+            </div>
+
+
+          </td>
+
+          <td class="td-fix">
+
+            <div *ngIf="!enableEdit || enableEditIndex != i  ">
+              {{listHtml.price}}
+
+            </div>
+
+            <div *ngIf="enableEdit" class="pad-5">
+              <input *ngIf="enableEditIndex == i" type="text" class="form-control" name="medicine_name" [(ngModel)]="listHtml.price" />
+
+            </div>
+
+
+          </td>
+
+          <td class="td-fix">
+
+            <div *ngIf="!enableEdit || enableEditIndex != i  ">
+              {{listHtml.active}}
+
+            </div>
+
+            <div *ngIf="enableEdit" class="pad-5">
+              <input *ngIf="enableEditIndex == i" type="text" class="form-control" name="medicine_name" [(ngModel)]="listHtml.active" />
+
+            </div>
+
+
+          </td>
+
+          <td class="td-fix">
+
+            <div *ngIf="!enableEdit || enableEditIndex != i  ">
+              {{listHtml.image}}
+
+            </div>
+
+            <div *ngIf="enableEdit" class="pad-5">
+              <input *ngIf="enableEditIndex == i" type="text" class="form-control" name="medicine_name" [(ngModel)]="listHtml.image" />
+
+            </div>
+
+
+          </td>
+
+
+
+
+          <td>
+
+            
+
+            <div class="td-fix">
+
+              <div *ngIf="enableEdit && enableEditIndex == i">
+              <button style="font-size:20px"  id="saveBtn" class="btn page-primary-action-btn" (click)="saveSegment(listHtml,i)" type="submit">Save</button>
+
+              <br/>
+
+              <button style="font-size:20px"  (click)="enableEdit=false" class="btn page-secondary-action-btn" ng-click="cancel()">Cancel</button>
+
+            </div>
+
+            <div >
+              <button style="font-size:25px" class='fa fa-pencil'   (click)="enableEditMethod($event, i)">  </button>
+              <button style="font-size:25px"  id="deleteBtn" class="fa fa-trash" (click)="deleteSegment(listHtml,i)" type="submit"></button>
+              </div>
+
+            </div>
+            
+
+
+          </td>
+
+        </tr>
+
+
+   
+
+
+
+    </table>
+  
+  </div>
+  </div>
+  </div>
+</div>
+
+</body>
