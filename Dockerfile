@@ -1,7 +1,7 @@
 # Stage 1: Compile and Build angular codebase
 
 # Use official node image as the base image
-FROM node:16.10.0 as build
+FROM node:16.10.0 as builder
 
 # Set the working directory
 WORKDIR /app
@@ -19,10 +19,10 @@ RUN npm run build
 # Stage 2: Serve app with nginx server
 
 # Use official nginx image as the base image
-FROM nginx:latest
+FROM nginx:stable
 
 # Copy the build output to replace the default nginx contents.
-COPY --from=build /dist/e-commerce-medicare /usr/share/nginx/html
+COPY --from=builder /usr/src/app/dist/e-commerce-medicare /usr/share/nginx/html
 
 # Expose port 4200
 EXPOSE 4200
